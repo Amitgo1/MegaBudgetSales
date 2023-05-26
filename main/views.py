@@ -29,7 +29,7 @@ def login3(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         try:
-            obj = MyUser.objects.get(username = username)
+            obj = MyUser.objects.get(username__iexact = username)
             print(password,obj.password)
             ismatched = check_password(password, obj.password)
             print(ismatched)
@@ -41,7 +41,7 @@ def login3(request):
                 
         except ObjectDoesNotExist:
             errormessage = "username or password is invalid"
-    return render(request,'main/login.html',{"errormessage":errormessage})
+    return render(request,'main/logintest.html',{"errormessage":errormessage})
 
 
 def logout1(request):

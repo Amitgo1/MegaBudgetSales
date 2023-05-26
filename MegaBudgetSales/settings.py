@@ -131,7 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py
 
 # Set the session cookie's age to 30 minutes
-SESSION_COOKIE_AGE = 60
+SESSION_COOKIE_AGE = 1800
 # settings.py
 
 # Expire session when the browser is closed
