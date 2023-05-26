@@ -127,3 +127,13 @@ STATIC_ROOT = BASE_DIR /'static'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# settings.py
+
+# Set the session cookie's age to 30 minutes
+SESSION_COOKIE_AGE = 60
+# settings.py
+
+# Expire session when the browser is closed
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+

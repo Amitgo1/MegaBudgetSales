@@ -19,10 +19,12 @@ from django.urls import path,include
 from django.conf import settings
 
 from django.conf.urls.static import static
+from main.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',include('main.urls')),
+    path('',index),
     path('products/',include('products.urls')),
     path('contact/',include('contact.urls')),
     path('clients/',include('clients.urls')),
