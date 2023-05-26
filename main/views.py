@@ -21,7 +21,7 @@ def register(request):
       
       
       MyUser.objects.create(username = name, email = email, phone = phone, password = password)
-    return render(request,'main/register.html')
+    return render(request,'main/register1.html')
 
 def login3(request):
     errormessage = ""
