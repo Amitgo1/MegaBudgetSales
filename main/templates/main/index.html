@@ -241,15 +241,16 @@
       <!-- newsletter section start -->
       <div class="newsletter_section layout_padding">
          <div class="container">
-            <h6 class="conect_text">Connect to Mega budget Sells</h6>
+            <h6 class="conect_text">Connect to Mega budget Sales</h6>
             <h1 class="newsletter_taital">Join Our Newsletter</h1>
             <p class="newsletter_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration </p>
+            <form method = "POST">
+               {% csrf_token %}
             <div class="input-group mb-3">
-               <input type="text" class="form-control" placeholder="Enter your email" aria-label="Enter your email" aria-describedby="basic-addon2">
-               <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2">Subscribe</span>
-               </div>
+               <input type="text" class="form-control" placeholder="Enter your email" name = "email">
+               <input type="submit" value="Subscribe">
             </div>
+         </form>
          </div>
       </div>
       <!-- newsletter section end -->

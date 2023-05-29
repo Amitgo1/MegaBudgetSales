@@ -8,4 +8,7 @@ class MyUser(models.Model):
 
     def __str__(self):
         return self.username
+    
+class MyEmail(models.Model):
+    email = models.EmailField()
 

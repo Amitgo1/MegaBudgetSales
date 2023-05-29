@@ -1,11 +1,16 @@
 from django.contrib.auth.hashers import check_password,make_password                         
 from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist
-from main.models import MyUser
+from main.models import MyUser,MyEmail
 from main.utils import outer_func
 
 @outer_func
 def index(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        print(email)
+        
+        MyEmail.objects.create(email = email)
     return render(request,'main/index.html',{"login":True})
 
 
@@ -21,6 +26,7 @@ def register(request):
       
       
       MyUser.objects.create(username = name, email = email, phone = phone, password = password)
+      return redirect('login3')
     return render(request,'main/register1.html')
 
 def login3(request):
@@ -48,6 +54,7 @@ def logout1(request):
     if 'username' in request.session:
         del request.session["username"]
     return redirect('login3')
+
             
         
 
