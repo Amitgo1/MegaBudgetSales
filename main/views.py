@@ -1,8 +1,9 @@
-from django.contrib.auth.hashers import check_password,make_password                         
+from django.contrib.auth.hashers import check_password                        
 from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist
 from main.models import MyUser,MyEmail
 from main.utils import outer_func
+from main.forms import MyForms
 
 @outer_func
 def index(request):
@@ -17,17 +18,16 @@ def index(request):
 def register(request):
     
     if request.method == "POST":
-      name  = request.POST.get("name")
-      email  = request.POST.get("email")
-      phone  = request.POST.get("phone")
-      password  = request.POST.get("password")
-      
-      password = make_password(password)
-      
-      
-      MyUser.objects.create(username = name, email = email, phone = phone, password = password)
-      return redirect('login3')
-    return render(request,'main/register1.html')
+        form = MyForms(request.POST)
+        if form.is_valid():
+            form.save()
+            form = MyForms()
+            return redirect('login3')
+        else:
+            print("issue")
+    else:
+        form = MyForms()
+    return render(request,'main/form.html',{"form":form})
 
 def login3(request):
     errormessage = ""
